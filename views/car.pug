@@ -1,0 +1,14 @@
+extends layout
+
+block content
+ h1=  title
+ 
+ - var result = [{"car_name":"BMW","car_type":"sedan","car_price":36000},{"car_name":"Ford","car_type":"sports_car","car_price":42000},{"car_name":"mercedes_Benz","car_type":"coupe","car_price":51000}]
+  div.container-fluid
+     div.row
+        each item,index in result
+            div.col-sm-2(onclick=`buy(${index})`) car Name: #{item["car_name"]}  <br>  car_type: #{item["car_type"]} <br> car_price: #{item["car_price"]} 
+ script.
+      function buy(index){
+         alert("you purchased item "+(index+1))
+      }
