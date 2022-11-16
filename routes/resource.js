@@ -18,3 +18,5 @@ router.get('/car/:id', car_controller.car_detail);
 // GET request for list of all car items.
 router.get('/car', car_controller.car_list);
 module.exports = router;
+// GET request for one car. 
+router.get('/car/:id', car_controller.car_detail); 
