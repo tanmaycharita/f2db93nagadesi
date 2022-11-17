@@ -2,7 +2,7 @@ extends layout
 block content
   h1= title
   form(id='carForm', action="/resource/car", method="POST")
-    div.form-group
+    div.form-group(class="design")
         label.carAttr(for='car_name') car name
         input#car_name(type='text', name='car_name')
     div.form-group

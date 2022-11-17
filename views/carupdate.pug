@@ -1,6 +1,6 @@
 extends layout
 block content
-  h1= title
+  h1(class='name')= title
   if (toShow == null) 
     h2 No instance to delete 
   else      
@@ -8,7 +8,7 @@ block content
     - let car_name = toShow.car_name
     - let car_type = toShow.car_type
     - let car_price = toShow.car_price
-    div.row(class='mb-2')
+    div.row(class='design' 'mb-2')
         div.mr-1 ID is
         div #{carid}
     - let actionid = "/resource/car/" + carid
