@@ -1,14 +1,24 @@
 extends layout
 
 block content
- h1=  title
- 
- - var result =results
-  div.container-fluid
-     div.row
+  h1= title
+  -
+  - let result=results
+  div(class="container-fluid")
+     div(class='row m-1')
         each item,index in result
+            -let destination = `dispatch(\"/car/update?id=${item._id}\")`
             div.col-sm-2(onclick=`buy(${index})`) car Name: #{item["car_name"]}  <br>  car_type: #{item["car_type"]} <br> car_price: #{item["car_price"]} 
- script.
+            button.btn(class="btn-primary ml-1", onclick = destination) Update
+  script.
       function buy(index){
          alert("you purchased item "+(index+1))
       }
+  script.
+      function dispatch(path){
+      window.location.href=path
+      }
+   //- button(type='button',value='ok') ok
+   //- button(type='button',value='save') save
+   //- button(type='button',value='update') update
+   //- button(type='button',value='delete') delete
