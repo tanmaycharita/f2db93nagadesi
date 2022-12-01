@@ -1,19 +1,11 @@
 extends layout
-
 block content
- h1=  title
- p Welcome to #{title}
- button(type='button',class='btn btn-primary',onclick='doBump()') press me
- br
- div#bump Bump the count 
- br
- a(class="btn btn-dark" href="car") car
- script.
-     var count=0;
-     var bump=1;
-     function doBump(){
-     count=count+bump;
-     bump=bump+1;
-     print=document.getElementById("bump");
-     print.innerHTML='Count '+count+' with bump '+bump;}
- 
+ if (!user)
+  a(href="/login") Login
+  br
+  a(href="/register") Register
+ if (user)
+  p You are currently logged in as #{user.username}
+  a(href="/car") Take me to car
+  br
+  a(href="/logout") Logout
